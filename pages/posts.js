@@ -1,16 +1,22 @@
-import {withRouter} from 'next/router';
 import Layout from '../components/Layout';
-const Content =  withRouter((props)=>(
+import fetch from 'isomorphic-unfetch';
+import RHP from 'react-html-parser';
+const Content = (props)=>(
     <>
-        <h1>{props.router.query.title}</h1>
-        {console.log(props)}
-        <article>
-            This is static !
-        </article>
-    </>
-));
-export default ()=>(
-    <Layout>
-        <Content/>
-    </Layout>
+        <h1>{props.name}</h1>
+        <img src={props.image.medium}/>
+        <p>{RHP(props.summary)}</p>
+   </>
 );
+const Posts = (props)=>(
+    <Layout>
+        <Content {...props}/>
+    </Layout>
+)
+Posts.getInitialProps = async function(context) {
+    const res = await fetch(`https://api.tvmaze.com/shows/${context.query.id}`);
+    const data = await res.json();
+    return data;
+};
+
+export default Posts;

@@ -4,9 +4,9 @@ export default ()=>(
     
     <div>
         <nav>
-            <Link href="/index"><a style={style}>Home</a></Link>
+            <Link href="/"><a style={style}>Home</a></Link>
             <Link href="/about"><a style={style}>About Us</a></Link>
-            <Link href="/sdf#"><a style={style}>Chat With Us</a></Link>
+            <Link href="/chat"><a style={style}>Chat With Us</a></Link>
         </nav>
     </div>
 );
