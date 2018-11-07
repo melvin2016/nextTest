@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "start": "next start",
-    "build": "next build"
+    "start": "NODE_ENV=production node app.js",
+    "build": "next build",
+    "export": "next export"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,8 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-html-parser": "^2.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
   }
 }
