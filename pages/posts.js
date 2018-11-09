@@ -1,4 +1,5 @@
 import Layout from '../components/Layout';
+import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import RHP from 'react-html-parser';
 const Content = (props)=>(
@@ -10,6 +11,11 @@ const Content = (props)=>(
 );
 const Posts = (props)=>(
     <Layout>
+        <Head>
+            <title>
+                {props.name}
+            </title>
+        </Head>
         <Content {...props}/>
     </Layout>
 )

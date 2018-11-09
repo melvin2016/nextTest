@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{231:function(n,e,t){__NEXT_REGISTER_PAGE("/chat",function(){return n.exports=t(232),{page:n.exports.default}})},232:function(n,e,t){"use strict";t.r(e);var a=t(0),r=t.n(a),u=t(19);e.default=function(){return r.a.createElement(u.a,null,r.a.createElement("pre",null,"Currently under Maintainance!"))}}},[[231,1,0]]]);
