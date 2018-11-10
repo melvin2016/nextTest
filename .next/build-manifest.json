@@ -10,6 +10,14 @@
     "/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/chat": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/weather": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

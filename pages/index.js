@@ -1,9 +1,27 @@
 import React from 'react';
 import Head from 'next/head';
-import {withRouter} from 'next/router';
+import Router ,{withRouter} from 'next/router';
 import Layout from '../components/Layout'
 import PostsLink from '../components/PostsLink';
 import fetch from 'isomorphic-unfetch';
+import Link from 'next/link';
+const handler = ()=>{
+    console.log(Router);
+   Router.push({
+       pathname:'/weather',
+       query:{
+           name:"KLM"
+       }
+   });
+}
+Router.events.on('routeChangeStart',(url)=>{
+    console.log(`Url is : ${url}`);
+});
+Router.events.on('routeChangeError', (err, url) => {
+    if (err.cancelled) {
+      console.log(`Route to ${url} was cancelled!`)
+    }
+  })
 const Index = withRouter((props)=>(
     <div>
         <Layout>
@@ -16,9 +34,12 @@ const Index = withRouter((props)=>(
             <p>
                 NOTE : Search for a specific show in url bar => <strong>/search/your_Show_name</strong>
                 <br/>
-                <pre>eg : /search/batman</pre>
+                eg : /search/batman
             </p>
-            {/* <img src="/static/oneplus.png"/> */}
+            <Link href={{pathname:'/weather',query:{name:'MVPA'}}} prefetch ><a>Weather MVPA</a></Link>
+            <Link href={{pathname:'/weather',query:{name:'EKM'}}} prefetch ><a>Weather EKM</a></Link>
+            <Link href="/weather"><img src="/static/oneplus.png" style={{height:'20px',width:'20px'}}/></Link>
+            <a onClick={handler}>Weather KLM</a>
             {props.shows.map((content)=>{
                 return <PostsLink key={content.show.id} id={content.show.id} name={content.show.name} url={content.show.url}/>
             })}
