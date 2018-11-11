@@ -22,7 +22,7 @@ const Posts = (props)=>(
 Posts.getInitialProps = async function(context) {
     const res = await fetch(`https://api.tvmaze.com/shows/${context.query.id}`);
     const data = await res.json();
-    return data;
+    return data; 
 };
 
 export default Posts;
